@@ -1,0 +1,2192 @@
+
+<!doctype html>
+<html lang="ko" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="언어를 다루는 사람이 데이터도 가장 잘 읽는다! 인문·언어 강점을 가진 외고생이 데이터과학의 세계에 자연스럽게 입문할 수 있도록 설계된, 실습 중심의 참여형 교육자료입니다.">
+      
+      
+        <meta name="author" content="Created with EduFlow">
+      
+      
+      
+        <link rel="prev" href="../chapter18/">
+      
+      
+        <link rel="next" href="../chapter20/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>데이터로 이야기하기 — 스토리텔링과 인사이트 - 데이터과학 첫걸음 - 고등학생을 위한 데이터 리터러시</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans KR";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/custom.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-19" class="md-skip">
+          콘텐츠로 이동
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="상단/헤더">
+    <a href=".." title="데이터과학 첫걸음 - 고등학생을 위한 데이터 리터러시" class="md-header__button md-logo" aria-label="데이터과학 첫걸음 - 고등학생을 위한 데이터 리터러시" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            데이터과학 첫걸음 - 고등학생을 위한 데이터 리터러시
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              데이터로 이야기하기 — 스토리텔링과 인사이트
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-purple"  aria-label="다크 모드로 전환"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="다크 모드로 전환" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="deep-purple"  aria-label="라이트 모드로 전환"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="라이트 모드로 전환" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="검색" placeholder="검색" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="검색">
+        
+        <button type="reset" class="md-search__icon md-icon" title="지우기" aria-label="지우기" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            검색 초기화
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="탭" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../chapter01/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Part 1 - [1권] Part 1. 데이터라는 새로운 언어와 만나기
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../chapter06/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Part 2 - [1권] Part 2. 데이터를 모으고 정리하는 기술
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../chapter11/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Part 3 - [2권] Part 3. 데이터에서 의미를 발견하다
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../chapter16/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Part 4 - [2권] Part 4. 데이터를 그림으로, 세상에 전하다
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="네비게이션" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="데이터과학 첫걸음 - 고등학생을 위한 데이터 리터러시" class="md-nav__button md-logo" aria-label="데이터과학 첫걸음 - 고등학생을 위한 데이터 리터러시" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    데이터과학 첫걸음 - 고등학생을 위한 데이터 리터러시
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 1 - [1권] Part 1. 데이터라는 새로운 언어와 만나기
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 1 - [1권] Part 1. 데이터라는 새로운 언어와 만나기
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    왜 데이터과학을 배워야 할까? — 이 책의 사용법
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    처음 만나는 데이터 — 숫자 너머의 이야기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    데이터는 왜 중요한가 — 의사결정의 비밀 무기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    데이터의 종류와 형태 이해하기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    여기까지 정리 — 데이터 세계의 첫 번째 지도 그리기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 2 - [1권] Part 2. 데이터를 모으고 정리하는 기술
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 2 - [1권] Part 2. 데이터를 모으고 정리하는 기술
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    데이터는 어디서 올까 — 수집의 세계
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    처음 만나는 파이썬 — 영어처럼 읽히는 코드
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    파이썬으로 데이터 열어보기 — 판다스 첫걸음
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    지저분한 데이터 깔끔하게 — 데이터 정제 실습
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    여기까지 정리 — 나만의 데이터셋 만들기 프로젝트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 3 - [2권] Part 3. 데이터에서 의미를 발견하다
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 3 - [2권] Part 3. 데이터에서 의미를 발견하다
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    숫자가 들려주는 이야기 — 기초 통계량 이해하기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    처음 만나는 오렌지3 — 코딩 없이 데이터 분석하기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    관계를 찾아라 — 상관관계와 패턴 탐색
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    데이터를 나누어 보기 — 그룹별 분석의 힘
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    여기까지 정리 — 데이터 탐정 보고서 작성하기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 4 - [2권] Part 4. 데이터를 그림으로, 세상에 전하다
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 4 - [2권] Part 4. 데이터를 그림으로, 세상에 전하다
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    왜 그래프가 필요한가 — 시각화의 힘
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter17/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    오렌지3로 그래프 만들기 — 클릭 몇 번의 마법
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter18/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    파이썬으로 그래프 그리기 — matplotlib 첫걸음
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    데이터로 이야기하기 — 스토리텔링과 인사이트
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    데이터로 이야기하기 — 스토리텔링과 인사이트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 이 장의 학습 목표
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 미리 알아야 할 것
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💡 왜 이걸 배우나요?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 핵심 개념
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📚 핵심 개념">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        개념 1: 데이터 스토리텔링의 3요소
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        개념 2: 효과적인 발표의 구조 — "맥락→발견→제안"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        개념 3: 데이터에서 인사이트 도출하기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        개념 4: 청중에 맞춘 메시지 다듬기
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔧 직접 해봐요
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔧 직접 해봐요">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        실습 1: 나쁜 발표 vs. 좋은 발표 비교
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        실습 2: 당신의 분석 결과를 5분 발표 구성안으로 만들기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        실습 3: 인사이트 깊게 파기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        실습 4: 같은 데이터, 다른 관점으로 보기
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📝 5분 발표 원고 템플릿 (직접 작성용)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚠️ 자주 하는 실수
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="⚠️ 자주 하는 실수">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        실수 1: "데이터를 나열하기만 하고 스토리가 없는 발표"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        실수 2: "너무 복잡한 시각화로 청중을 혼란스럽게 하기"
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter20/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    최종 프로젝트 — 나의 데이터 이야기 완성하기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter21/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    다음 단계로 나아가기 — 데이터과학 그 이후
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 이 장의 학습 목표
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 미리 알아야 할 것
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💡 왜 이걸 배우나요?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 핵심 개념
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📚 핵심 개념">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        개념 1: 데이터 스토리텔링의 3요소
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        개념 2: 효과적인 발표의 구조 — "맥락→발견→제안"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        개념 3: 데이터에서 인사이트 도출하기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        개념 4: 청중에 맞춘 메시지 다듬기
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔧 직접 해봐요
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔧 직접 해봐요">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        실습 1: 나쁜 발표 vs. 좋은 발표 비교
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        실습 2: 당신의 분석 결과를 5분 발표 구성안으로 만들기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        실습 3: 인사이트 깊게 파기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        실습 4: 같은 데이터, 다른 관점으로 보기
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📝 5분 발표 원고 템플릿 (직접 작성용)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚠️ 자주 하는 실수
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="⚠️ 자주 하는 실수">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        실수 1: "데이터를 나열하기만 하고 스토리가 없는 발표"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        실수 2: "너무 복잡한 시각화로 청중을 혼란스럽게 하기"
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="chapter-19">Chapter 19. 데이터로 이야기하기 — 스토리텔링과 인사이트<a class="headerlink" href="#chapter-19" title="Permanent link">&para;</a></h1>
+<h2 id="_1">🎯 이 장의 학습 목표<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>이 장을 마치면 다음을 할 수 있습니다:</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 데이터 스토리텔링의 3요소(데이터, 시각화, 내러티브)를 이해하고 설명할 수 있다</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 분석 결과를 청중에게 효과적으로 전달하는 발표 구성안을 작성할 수 있다</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 데이터에서 진정한 인사이트를 도출하고 근거 있는 제안을 할 수 있다</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 동일한 데이터를 다양한 관점으로 해석하는 능력을 기른다</li>
+</ul>
+<p><strong>예상 학습 시간</strong>: 약 2시간</p>
+<h2 id="_2">📚 미리 알아야 할 것<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>이전 장들에서 여러분은:
+- 데이터를 정제하고 분석하는 방법을 배웠어요
+- 막대 그래프, 선 그래프 등 다양한 시각화를 만들었어요
+- 통계적 의미를 찾는 방법을 이해했어요</p>
+<p>이 장에서는 이 모든 결과들을 <strong>의미 있는 이야기</strong>로 엮어내는 최종 단계에 들어갑니다!</p>
+<hr />
+<h2 id="_3">💡 왜 이걸 배우나요?<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>데이터 분석가가 훌륭한 그래프를 만들었다고 해서 그것이 세상을 바꾸지는 못합니다. </p>
+<p>생각해 보세요. 뉴스를 볼 때 앵커가 단순히 차트만 띄우고 "이게 우리 회사 매출입니다"라고 말하면 어떨까요? 지루하고 잘 기억되지 않을 거예요.</p>
+<p>하지만 "3년간 저조했던 매출이 새로운 마케팅 전략 도입 후 35% 증가했습니다. 이는 특히 20대 여성 고객층에서 두드러집니다"라고 하면? 훨씬 더 생생하고 설득력 있게 들리죠.</p>
+<p><strong>데이터 스토리텔링</strong>은 단순한 숫자와 그래프를 인간의 감정과 이해에 닿는 <strong>이야기</strong>로 변환하는 기술입니다. 이것이 바로 여러분의 데이터 분석이 실제 행동과 변화를 만드는 순간입니다.</p>
+<hr />
+<h2 id="_4">📚 핵심 개념<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="1-3">개념 1: 데이터 스토리텔링의 3요소<a class="headerlink" href="#1-3" title="Permanent link">&para;</a></h3>
+<p><strong>데이터 스토리텔링</strong>이란 무엇인가요?</p>
+<p>비유로 설명하자면, 영화를 생각해 보세요. 영화는 <strong>촬영한 영상(데이터)</strong> + <strong>영화의 구도나 색감(시각화)</strong> + <strong>배우의 연기와 음악(내러티브)</strong>이 합쳐져 우리의 감정을 움직입니다. 데이터 스토리텔링도 정확히 같아요.</p>
+<blockquote>
+<p><strong>정의</strong>: 데이터 스토리텔링은 <strong>데이터(Facts)</strong>, <strong>시각화(Visualization)</strong>, <strong>내러티브(Narrative)</strong>의 3가지 요소를 조화롭게 조합하여 청중의 이해와 행동을 유도하는 커뮤니케이션 기법입니다.</p>
+</blockquote>
+<p><strong>3가지 요소를 자세히 들여다봅시다:</strong></p>
+<p><strong>① 데이터(Facts)</strong>
+- 우리가 분석한 객관적인 수치와 통계
+- 예: "지난해 온라인 판매가 30% 증가했다"</p>
+<p><strong>② 시각화(Visualization)</strong>
+- 데이터를 직관적으로 보여주는 그래프, 차트, 지도
+- 예: 지난 12개월 매출을 보여주는 선 그래프</p>
+<p><strong>③ 내러티브(Narrative)</strong>
+- "왜 이런 일이 일어났는가"를 설명하는 스토리
+- 맥락, 인사이트, 제안을 포함한 말과 글
+- 예: "이 증가는 모바일 앱 출시와 소셜미디어 광고 확대로 인한 것입니다"</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>┌─────────────────────────────────────────────────┐
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>│       데이터 스토리텔링의 3요소 (Mermaid)        │
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>└─────────────────────────────────────────────────┘
+</span></code></pre></div>
+<div class="mermaid">graph TB
+    A["📊 데이터&lt;br/&gt;(객관적 사실)"] --&gt; D["✨ 강력한 커뮤니케이션"]
+    B["📈 시각화&lt;br/&gt;(직관적 표현)"] --&gt; D
+    C["📖 내러티브&lt;br/&gt;(의미 있는 이야기)"] --&gt; D</div>
+<p>예시를 통해 확인해 봅시다:</p>
+<p><strong>❌ 나쁜 예</strong>: 그래프 3개만 나열
+- "월별 방문자 수 그래프입니다"
+- "지역별 구매액 그래프입니다"
+- "연령대별 만족도 그래프입니다"</p>
+<p><strong>✅ 좋은 예</strong>: 3요소를 모두 활용
+- "데이터: 올해 상반기 방문자는 작년보다 45% 증가했습니다 (그래프 1)"
+- "분석: 특히 20-30대 모바일 사용자가 월 5만 명에서 12만 명으로 늘었습니다 (그래프 2)"
+- "제안: 따라서 모바일 UI를 개선하고, 이 연령층 맞춤 콘텐츠에 투자해야 합니다" (논리적 결론)</p>
+<hr />
+<h3 id="2">개념 2: 효과적인 발표의 구조 — "맥락→발견→제안"<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<p>좋은 이야기는 구조를 가지고 있습니다. 영화도, 소설도, 뉴스 기사도 그렇죠. 데이터 발표도 마찬가지입니다.</p>
+<p><strong>3단계 구조를 배워봅시다:</strong></p>
+<p><strong>Step 1: 맥락(Context)</strong> — "왜 이걸 분석했나?"
+- 배경과 문제상황을 설명
+- 청중이 왜 이 데이터를 들어야 하는지 이해하게 함
+- 예: "우리 회사의 고객 이탈률이 지난 3년간 계속 증가하고 있습니다"</p>
+<p><strong>Step 2: 발견(Discovery)</strong> — "우리가 찾은 게 뭔가?"
+- 분석 결과를 시각화와 함께 제시
+- 명확한 통계와 그래프로 뒷받침
+- 예: "특히 구독료 인상 이후 3개월 내 이탈률이 42% 증가했습니다"</p>
+<p><strong>Step 3: 제안(Recommendation)</strong> — "이제 어떻게 할까?"
+- 데이터 기반의 구체적 행동 방안
+- 단순 의견이 아닌 증거에 기반한 제안
+- 예: "우리는 구독료를 현재 수준으로 유지하면서, 프리미엄 기능을 확대하는 전략을 추천합니다"</p>
+<blockquote>
+<p>💡 <strong>중요!</strong> 이 3단계는 마치 소설의 서론→본론→결론처럼 자연스럽게 흘러야 해요. 갑자기 제안만 던지면 청중이 왜 그래야 하는지 이해하지 못합니다.</p>
+</blockquote>
+<hr />
+<h3 id="3">개념 3: 데이터에서 인사이트 도출하기<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<p><strong>인사이트(Insight)</strong>란 무엇일까요?</p>
+<p>데이터는 있지만 인사이트가 없다면? 예를 들어:</p>
+<ul>
+<li><strong>데이터</strong>: "월요일의 카페 방문객이 금요일보다 30% 적습니다"</li>
+<li><strong>인사이트 없음</strong>: "따라서 월요일에 손님이 30% 적습니다" ← 이건 데이터를 반복한 것일 뿐</li>
+<li><strong>인사이트 있음</strong>: "월요일 적은 방문객은 주말 휴무 후 재오픈 직후 고객들의 외출 선호도가 낮기 때문입니다. 따라서 월요일 아침에 '월요일 특가' 이벤트를 시작하면 방문객을 늘릴 수 있습니다"</li>
+</ul>
+<p><strong>인사이트는 이렇게 도출합니다:</strong></p>
+<p><strong>① 데이터의 원인 찾기</strong>
+- "무엇이 일어났는가?"에서 "왜 일어났는가?"로 나아가기
+- 다른 변수들과의 관계 살피기</p>
+<p><strong>② 비교와 대조</strong>
+- 작년과 올해 비교
+- 다른 그룹과의 비교
+- 기대값과 실제값 비교</p>
+<p><strong>③ 맥락에 맞춘 해석</strong>
+- 산업 동향 고려
+- 외부 사건(뉴스, 정책 변화 등) 고려
+- 고객의 니즈와 감정 고려</p>
+<p><strong>예시로 확인해 봅시다:</strong></p>
+<div class="mermaid">graph LR
+    A["📊 날씨 데이터:&lt;br/&gt;비 오는 날 우산 판매 2배"] --&gt;|원인 분석| B["💡 인사이트:&lt;br/&gt;고객이 필요할 때 구매"]
+    B --&gt;|실행 방안| C["🎯 제안:&lt;br/&gt;일기예보와 연동해&lt;br/&gt;사전 공지 광고 배포"]</div>
+<hr />
+<h3 id="4">개념 4: 청중에 맞춘 메시지 다듬기<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<p>같은 데이터라도 청중에 따라 강조점이 달라져야 합니다.</p>
+<p><strong>회사 경영진을 대상으로</strong>:
+- 강조: 매출, ROI, 위험 요소
+- 시각화: 간단한 핵심 지표 3-4개
+- 톤: 비즈니스 중심, 빠른 의사결정 지원</p>
+<p><strong>고객을 대상으로</strong>:
+- 강조: 그들의 이익, 품질 개선, 신뢰성
+- 시각화: 친근하고 이해하기 쉬운 비유
+- 톤: 따뜻하고 공감하는</p>
+<p><strong>팀 내 데이터 분석가들을 대상으로</strong>:
+- 강조: 방법론, 통계적 유의성, 한계점
+- 시각화: 상세한 수치와 신뢰 구간
+- 톤: 전문적이고 정확한</p>
+<blockquote>
+<p>💡 <strong>팁</strong>: 항상 자문해 봅시다. "내 청중은 이 데이터로 어떤 결정을 내려야 하나?" 그 답이 당신의 스토리를 결정합니다.</p>
+</blockquote>
+<hr />
+<h2 id="_5">🔧 직접 해봐요<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h3 id="1-vs">실습 1: 나쁜 발표 vs. 좋은 발표 비교<a class="headerlink" href="#1-vs" title="Permanent link">&para;</a></h3>
+<p><strong>목표</strong>: 같은 데이터로 만든 두 가지 발표 스타일의 차이를 이해하기</p>
+<p><strong>준비물</strong>: 아래 시나리오</p>
+<p><strong>시나리오</strong>: 온라인 쇼핑몰의 고객 이탈 데이터</p>
+<p><strong>데이터</strong>:
+- 지난 6개월간 월평균 이탈률: 12%
+- 배송비 인상 정책 시행 직후(1개월): 이탈률 19%
+- 그 이후 5개월: 이탈률 15%→14%→13%→12%→11%</p>
+<p><strong>따라하기:</strong></p>
+<p>1️⃣ <strong>나쁜 발표 예시</strong> 작성해 보기
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>&quot;지난 6개월의 고객 이탈률을 봤습니다.
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>월별로 12%, 19%, 15%, 14%, 13%, 12%, 11%입니다.&quot;
+</span></code></pre></div>
+- 이게 왜 나쁜가요?
+  - 단순히 숫자를 읽기만 함
+  - 청중이 왜 들어야 하는지 모름
+  - 어떤 행동을 해야 하는지 불명확</p>
+<p>2️⃣ <strong>좋은 발표 예시</strong> 작성해 보기
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>📍 맥락: &quot;우리 쇼핑몰의 고객 이탈이 심각한 상황입니다.&quot;
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>📈 발견: &quot;지난 1월 배송비를 인상한 직후, 
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>이탈률이 19%로 급증했습니다(기존 12% → +58% 증가).
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>다행히 이후 고객 만족도 캠페인과 맞춤형 할인 실시로 
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>5개월 동안 지속적으로 회복되어 현재 11%까지 낮춰졌습니다.&quot;
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>💡 제안: &quot;배송비 정책은 신중하게 조정하되, 
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>동시에 마케팅 지원으로 손실을 보전하는 
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>&#39;정책 + 마케팅&#39; 조합 전략이 효과적임을 확인했습니다.&quot;
+</span></code></pre></div></p>
+<p>3️⃣ <strong>비교하기</strong>
+- 좋은 예시가 왜 더 설득력이 있나요?
+  - 청중이 문제의 중요성을 이해함
+  - 원인(배송비 인상)과 결과를 명확히 연결
+  - 앞으로 어떻게 할지 방향이 보임</p>
+<blockquote>
+<p>✅ <strong>체크포인트</strong>: 
+"나쁜 예시"와 "좋은 예시"의 차이를 3가지 이상 적을 수 있나요?</p>
+</blockquote>
+<hr />
+<h3 id="2-5">실습 2: 당신의 분석 결과를 5분 발표 구성안으로 만들기<a class="headerlink" href="#2-5" title="Permanent link">&para;</a></h3>
+<p><strong>목표</strong>: 이전 장에서 분석한 데이터(또는 간단한 예제 데이터)를 바탕으로 5분 발표 원고 작성</p>
+<p><strong>준비물</strong>: 
+- 이전에 만들어 본 데이터 분석 결과
+- 또는 아래 예제 데이터 사용 가능</p>
+<p><strong>예제 데이터</strong>: 지역별 카페 방문객 현황
+- 강남역 카페: 평일 800명, 주말 1,200명 (주말 +50%)
+- 강북역 카페: 평일 400명, 주말 500명 (주말 +25%)
+- 강남역은 직장인 고객, 강북역은 주민 고객 중심</p>
+<p><strong>따라하기:</strong></p>
+<p>1️⃣ <strong>발표 제목 짓기</strong>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>❌ 나쁜 예: &quot;카페 방문객 현황&quot;
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>✅ 좋은 예: &quot;지역별 고객 특성으로 보는 카페 전략의 차이&quot;
+</span></code></pre></div></p>
+<p>2️⃣ <strong>맥락 부분 작성</strong> (30초)
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>&quot;우리 카페 체인은 강남역과 강북역 두 지점을 운영하고 있습니다.
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>두 지점의 매출 격차가 점점 벌어지고 있는데,
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>이것이 실제로는 &#39;지역 고객의 특성 차이&#39;에서 비롯된 것일 수 있습니다.
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>오늘 이를 데이터로 분석한 결과를 공유합니다.&quot;
+</span></code></pre></div></p>
+<p>3️⃣ <strong>발견 부분 작성</strong> (2분 30초)
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>&quot;분석 결과는 명확합니다.
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>첫째, 강남역 카페는 주말에 방문객이 50% 증가하는 반면,
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>강북역은 25% 정도만 증가합니다.
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>둘째, 시간대별 분석을 보면 강남역은 평일 오전 9-11시와
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>저녁 7-9시에 피크를 보입니다. 직장인의 통근 시간대입니다.
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>셋째, 반면 강북역은 오후 2-4시와 저녁 7-8시에 고르게 분포하는데,
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>이는 근처 주민들의 여유로운 방문 패턴을 반영합니다.&quot;
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>(여기에 그래프 2-3개를 보여줍니다)
+</span></code></pre></div></p>
+<p>4️⃣ <strong>제안 부분 작성</strong> (2분)
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>&quot;이 분석에서 얻은 인사이트는 이것입니다:
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>&#39;강남역과 강북역은 다른 전략이 필요하다&#39;는 것입니다.
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>강남역의 경우:
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>- 직장인 고객 대상이므로 &#39;빠른 서빙&#39;과 &#39;업무 공간&#39; 제공에 중점
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>- 주말 증가세를 활용해 &#39;데이트 커플&#39; 대상 프로모션 추진
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>강북역의 경우:
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>- 주민 고객 대상이므로 &#39;안락한 분위기&#39;와 &#39;장시간 체류 환경&#39; 중점
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>- 오후 시간대 활성화를 위해 &#39;카페 문화 강좌&#39; 등 특별 프로그램 운영
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>이 방식으로 지난 분기 강북역 매출을 20% 증대했습니다.&quot;
+</span></code></pre></div></p>
+<p>5️⃣ <strong>Q&amp;A 대비</strong> (선택)
+- 가장 많이 나올 질문 3개 미리 예상하고 답변 준비</p>
+<p>6️⃣ <strong>발표 연습</strong>
+- 5분 타이머를 켜고 실제로 읽어보기
+- 너무 빠르지 않은지 확인
+- 자연스러운지 확인</p>
+<blockquote>
+<p>✅ <strong>체크포인트</strong>: 
+- 맥락→발견→제안이 자연스럽게 흘러가나요?
+- 청중이 이해하기 어려운 전문용어가 있나요?
+- 각 부분이 시간 내에 끝나나요?</p>
+</blockquote>
+<hr />
+<h3 id="3_1">실습 3: 인사이트 깊게 파기<a class="headerlink" href="#3_1" title="Permanent link">&para;</a></h3>
+<p><strong>목표</strong>: 단순 관찰을 진정한 인사이트로 업그레이드하기</p>
+<p><strong>따라하기:</strong></p>
+<p>다음 3가지 '관찰'을 보고, 각각을 '인사이트'로 발전시켜 봅시다.</p>
+<p><strong>관찰 1</strong>: "우리 앱의 월별 사용자가 1월 10만 명에서 6월 15만 명으로 증가했다"</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>🔄 인사이트로 발전:
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>→ &quot;1월부터 3월까지는 10-11만 명으로 정체했지만, 
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>   4월 대형 마케팅 캠페인(유튜버 광고)과 
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>   신기능 추가 이후 급증했습니다.
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>   따라서 우리 사용자 증가의 핵심은 
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>   &#39;콘텐츠 마케팅&#39;입니다.&quot;
+</span></code></pre></div>
+<p><strong>관찰 2</strong>: "저소득층 고객이 고소득층 고객보다 재구매율이 높다(82% vs 65%)"</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>🔄 인사이트로 발전:
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>→ &quot;일반적 가정과 반대 결과입니다. 심화 분석한 결과:
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>   - 저소득층은 우리 상품이 생활필수품이라 
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>     계속 사용(습관 구매)
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>   - 고소득층은 선택상품으로 보아 대체 상품 시도
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>   따라서 고소득층 타겟으로는 
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>   &#39;프리미엄 라인&#39; 개발이 필요합니다.&quot;
+</span></code></pre></div>
+<p><strong>관찰 3</strong>: "모바일 버전의 이탈률이 데스크톱보다 30% 높다"</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>🔄 인사이트로 발전:
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>→ &quot;원인 분석 결과:
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>   - 모바일은 화면이 작아 복잡한 결제 과정이 부담
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>   - 데스크톱 사용자는 계획적 구매, 
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>     모바일은 충동 구매 시도
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>   따라서 모바일용 &#39;원클릭 결제 기능&#39; 도입과
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>   &#39;추천 상품 알림&#39; 최적화가 필수입니다.&quot;
+</span></code></pre></div>
+<p>이 연습을 통해 보면:
+- <strong>단순 관찰</strong>: "무엇이 변했는가?"
+- <strong>진정한 인사이트</strong>: "왜 변했는가?" + "우리는 어떻게 대응할 것인가?"</p>
+<blockquote>
+<p>💡 <strong>팁</strong>: 인사이트는 <strong>호기심</strong>에서 나옵니다. 
+데이터를 보고 "어?"라고 의아해하고, 
+"왜?"라고 계속 물어보세요!</p>
+</blockquote>
+<hr />
+<h3 id="4_1">실습 4: 같은 데이터, 다른 관점으로 보기<a class="headerlink" href="#4_1" title="Permanent link">&para;</a></h3>
+<p><strong>목표</strong>: 데이터 해석의 다양성 체험</p>
+<p><strong>시나리오</strong>: 온라인 쇼핑몰의 이번 달 판매 데이터</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>- 스니커즈 판매: 500쌍 (전달 대비 +20%)
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>- 운동화 판매: 200쌍 (전달 대비 -10%)
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>- 구두 판매: 150쌍 (전달 대비 +5%)
+</span></code></pre></div>
+<p><strong>따라하기:</strong></p>
+<p><strong>관점 1: 마케팅 팀의 해석</strong>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>&quot;스니커즈 판매가 20% 증가한 이유는 
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>우리의 &#39;힙한 운동화&#39; 인플루언서 마케팅이 성공한 증거입니다!
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>더 많은 예산을 이 카테고리에 투입해야 합니다.&quot;
+</span></code></pre></div></p>
+<p><strong>관점 2: 재고 관리 팀의 해석</strong>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>&quot;스니커즈 판매 증가는 실제로 &#39;부족했던 인기 사이즈의 재입고&#39; 덕분입니다.
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>운동화 판매 감소는 우리가 운동화를 &#39;품절 상태&#39;로 놔뒀기 때문입니다.
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>결국 마케팅이 아니라 &#39;재고 전략&#39;이 핵심입니다.&quot;
+</span></code></pre></div></p>
+<p><strong>관점 3: 트렌드 분석 팀의 해석</strong>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>&quot;스니커즈 증가와 구두 증가, 운동화 감소는 명확한 패턴입니다:
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>캐주얼 스타일로의 트렌드 변화입니다.
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>우리가 &#39;정장화&#39; 판매에 집중하는 것은 
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>시대에 뒤떨어진 전략입니다.&quot;
+</span></code></pre></div></p>
+<p><strong>이 실습이 보여주는 것:</strong>
+- 같은 숫자도 관점에 따라 완전히 다른 의미를 가질 수 있다
+- 따라서 데이터만으로는 부족하고 <strong>맥락과 도메인 지식</strong>이 중요하다
+- 좋은 분석은 <strong>다양한 팀의 의견을 종합</strong>하는 것이다</p>
+<hr />
+<h2 id="5">📝 5분 발표 원고 템플릿 (직접 작성용)<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<p>아래 틀을 사용해 자신의 발표 원고를 만들어 보세요. 각 섹션은 시간 가이드를 따릅니다.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>제목: _________________________________
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>🎯 맥락 부분 (30초 - 약 100단어)
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>─────────────────────────────────
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>[문제 상황 소개]
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>[청중이 왜 들어야 하는지 설명]
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>[분석 배경 간단히]
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>본문)
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>
+</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>
+</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a>
+</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>📊 발견 부분 (2분 30초 - 약 500단어)
+</span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a>─────────────────────────────────
+</span><span id="__span-14-16"><a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a>[발견 1: _____________]
+</span><span id="__span-14-17"><a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a>  ㄴ 근거 데이터:
+</span><span id="__span-14-18"><a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a>
+</span><span id="__span-14-19"><a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a>[발견 2: _____________]
+</span><span id="__span-14-20"><a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a>  ㄴ 근거 데이터:
+</span><span id="__span-14-21"><a id="__codelineno-14-21" name="__codelineno-14-21" href="#__codelineno-14-21"></a>
+</span><span id="__span-14-22"><a id="__codelineno-14-22" name="__codelineno-14-22" href="#__codelineno-14-22"></a>[발견 3: _____________]
+</span><span id="__span-14-23"><a id="__codelineno-14-23" name="__codelineno-14-23" href="#__codelineno-14-23"></a>  ㄴ 근거 데이터:
+</span><span id="__span-14-24"><a id="__codelineno-14-24" name="__codelineno-14-24" href="#__codelineno-14-24"></a>
+</span><span id="__span-14-25"><a id="__codelineno-14-25" name="__codelineno-14-25" href="#__codelineno-14-25"></a>(여기에 그래프/차트 3-4개 표시)
+</span><span id="__span-14-26"><a id="__codelineno-14-26" name="__codelineno-14-26" href="#__codelineno-14-26"></a>
+</span><span id="__span-14-27"><a id="__codelineno-14-27" name="__codelineno-14-27" href="#__codelineno-14-27"></a>
+</span><span id="__span-14-28"><a id="__codelineno-14-28" name="__codelineno-14-28" href="#__codelineno-14-28"></a>💡 제안 부분 (2분)
+</span><span id="__span-14-29"><a id="__codelineno-14-29" name="__codelineno-14-29" href="#__codelineno-14-29"></a>─────────────────────────────────
+</span><span id="__span-14-30"><a id="__codelineno-14-30" name="__codelineno-14-30" href="#__codelineno-14-30"></a>[결론 문장: 이 분석에서 가장 중요한 인사이트]
+</span><span id="__span-14-31"><a id="__codelineno-14-31" name="__codelineno-14-31" href="#__codelineno-14-31"></a>
+</span><span id="__span-14-32"><a id="__codelineno-14-32" name="__codelineno-14-32" href="#__codelineno-14-32"></a>구체적 행동 방안 1:
+</span><span id="__span-14-33"><a id="__codelineno-14-33" name="__codelineno-14-33" href="#__codelineno-14-33"></a>  → 기대 효과:
+</span><span id="__span-14-34"><a id="__codelineno-14-34" name="__codelineno-14-34" href="#__codelineno-14-34"></a>
+</span><span id="__span-14-35"><a id="__codelineno-14-35" name="__codelineno-14-35" href="#__codelineno-14-35"></a>구체적 행동 방안 2:
+</span><span id="__span-14-36"><a id="__codelineno-14-36" name="__codelineno-14-36" href="#__codelineno-14-36"></a>  → 기대 효과:
+</span><span id="__span-14-37"><a id="__codelineno-14-37" name="__codelineno-14-37" href="#__codelineno-14-37"></a>
+</span><span id="__span-14-38"><a id="__codelineno-14-38" name="__codelineno-14-38" href="#__codelineno-14-38"></a>마지막 메시지:
+</span></code></pre></div>
+<hr />
+<h2 id="_6">⚠️ 자주 하는 실수<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h3 id="1">실수 1: "데이터를 나열하기만 하고 스토리가 없는 발표"<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<p>❌ <strong>나쁜 예</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>&quot;1월 판매 500만 원, 2월 550만 원, 3월 600만 원...&quot;
+</span></code></pre></div></p>
+<p>✅ <strong>올바른 방법</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>&quot;지난 분기 우리 매출이 500만 원에서 600만 원으로 증가했습니다.
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>특히 3월의 전사 마케팅 활동이 주효했는데,
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>이는 신규 고객 확보에 25% 기여했습니다.
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>다음 분기에도 이 전략을 강화하는 것을 제안합니다.&quot;
+</span></code></pre></div></p>
+<p><strong>왜 이런 일이 생기나요?</strong>
+- 분석 결과를 정렬하기만 했지, 그 의미를 생각하지 않았어요
+- 청중의 입장을 고려하지 않았어요</p>
+<p><strong>이렇게 해결해요:</strong>
+- 항상 "그래서 어떻다는 건데?"를 물어보기
+- "내 청중이 이 정보로 뭘 해야 하지?"를 먼저 생각하기</p>
+<hr />
+<h3 id="2_1">실수 2: "너무 복잡한 시각화로 청중을 혼란스럽게 하기"<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h3>
+<p>❌ <strong>나쁜 예</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>- 변수 15개를 모두 보여주는 차트
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>- 범례가 글자로 가득한 그래프
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>- 색상이 너무 많아 눈이 피로한 화면
+</span></code></pre></div></p>
+<p>✅ <strong>올바른 방법</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>- 가장 중요한 3-4개 변수만 하이라이트
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>- 핵심 수치는 크고 명확하게
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>- 색상은 최대 3-4가지만
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>- 필요시 같은 데이터를 여러 그래프로 나누기
+</span></code></pre></div></p>
+<p><strong>왜 이런 일이 생기나요?</strong>
+- "모든 정보를 다 </p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  맨위로
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
+      
+        <script src="../javascripts/title-link.js"></script>
+      
+    
+  </body>
+</html>

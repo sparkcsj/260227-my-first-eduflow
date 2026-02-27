@@ -1,0 +1,2782 @@
+
+<!doctype html>
+<html lang="ko" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="언어를 다루는 사람이 데이터도 가장 잘 읽는다! 인문·언어 강점을 가진 외고생이 데이터과학의 세계에 자연스럽게 입문할 수 있도록 설계된, 실습 중심의 참여형 교육자료입니다.">
+      
+      
+        <meta name="author" content="Created with EduFlow">
+      
+      
+      
+        <link rel="prev" href="../chapter03/">
+      
+      
+        <link rel="next" href="../chapter05/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>데이터의 종류와 형태 이해하기 - 데이터과학 첫걸음 - 고등학생을 위한 데이터 리터러시</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans KR";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/custom.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-04" class="md-skip">
+          콘텐츠로 이동
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="상단/헤더">
+    <a href=".." title="데이터과학 첫걸음 - 고등학생을 위한 데이터 리터러시" class="md-header__button md-logo" aria-label="데이터과학 첫걸음 - 고등학생을 위한 데이터 리터러시" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            데이터과학 첫걸음 - 고등학생을 위한 데이터 리터러시
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              데이터의 종류와 형태 이해하기
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-purple"  aria-label="다크 모드로 전환"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="다크 모드로 전환" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="deep-purple"  aria-label="라이트 모드로 전환"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="라이트 모드로 전환" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="검색" placeholder="검색" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="검색">
+        
+        <button type="reset" class="md-search__icon md-icon" title="지우기" aria-label="지우기" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            검색 초기화
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="탭" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../chapter01/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Part 1 - [1권] Part 1. 데이터라는 새로운 언어와 만나기
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../chapter06/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Part 2 - [1권] Part 2. 데이터를 모으고 정리하는 기술
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../chapter11/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Part 3 - [2권] Part 3. 데이터에서 의미를 발견하다
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../chapter16/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Part 4 - [2권] Part 4. 데이터를 그림으로, 세상에 전하다
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="네비게이션" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="데이터과학 첫걸음 - 고등학생을 위한 데이터 리터러시" class="md-nav__button md-logo" aria-label="데이터과학 첫걸음 - 고등학생을 위한 데이터 리터러시" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    데이터과학 첫걸음 - 고등학생을 위한 데이터 리터러시
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 1 - [1권] Part 1. 데이터라는 새로운 언어와 만나기
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 1 - [1권] Part 1. 데이터라는 새로운 언어와 만나기
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    왜 데이터과학을 배워야 할까? — 이 책의 사용법
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    처음 만나는 데이터 — 숫자 너머의 이야기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    데이터는 왜 중요한가 — 의사결정의 비밀 무기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    데이터의 종류와 형태 이해하기
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    데이터의 종류와 형태 이해하기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 이 장의 학습 목표
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 미리 알아야 할 것
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💡 왜 이걸 배우나요?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 핵심 개념
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📚 핵심 개념">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-numerical-vs-categorical" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        개념 1: 수치형(Numerical) vs 범주형(Categorical) 데이터
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="개념 1: 수치형(Numerical) vs 범주형(Categorical) 데이터">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 비유로 시작해볼게요
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📖 정확한 정의
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔍 예시로 확인해보기
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-structured" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        개념 2: 정형(Structured) 데이터
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="개념 2: 정형(Structured) 데이터">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 비유로 이해하기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📖 정의와 특징
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔍 정형 데이터 실제 모습
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-unstructured" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        개념 3: 비정형(Unstructured) 데이터
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="개념 3: 비정형(Unstructured) 데이터">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 비유로 이해하기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📖 정의와 특징
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔍 비정형 데이터 실제 예시
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-semi-structured" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        개념 4: 반정형(Semi-structured) 데이터
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="개념 4: 반정형(Semi-structured) 데이터">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 비유로 이해하기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📖 정의와 특징
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔍 반정형 데이터 실제 예시
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔨 따라하기: 실제 데이터 분류해보기
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔨 따라하기: 실제 데이터 분류해보기">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: 준비물 확인하기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: 예시 데이터 읽어보기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: 각 열을 분류하기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: 전체 데이터 형태 판단하기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: 비정형 데이터와 비교하기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6: 실습 마무리
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚠️ 자주 하는 실수
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="⚠️ 자주 하는 실수">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        실수 1: "숫자 = 수치형" 이라고 생각하기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        실수 2: 비정형 데이터를 "쓸모없다"고 생각하기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        실수 3: 데이터 분류를 "절대적"이라고 생각하기
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📝 전체 코드 및 정리 표
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📝 전체 코드 및 정리 표">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        데이터 종류 비교표
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ 스스로 점검해 봐요
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 더 해보기
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 더 해보기">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        도전 과제 1: 당신의 학교 급식 데이터 직접 만들기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        도전 과제 2: 일상에서 찾기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        도전 과제 3: 다음 장을 위한 준비
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔗 다음 장으로
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📌 이 장의 핵심 정리
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📌 이 장의 핵심 정리">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ 꼭 기억할 4가지
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    여기까지 정리 — 데이터 세계의 첫 번째 지도 그리기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 2 - [1권] Part 2. 데이터를 모으고 정리하는 기술
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 2 - [1권] Part 2. 데이터를 모으고 정리하는 기술
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    데이터는 어디서 올까 — 수집의 세계
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    처음 만나는 파이썬 — 영어처럼 읽히는 코드
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    파이썬으로 데이터 열어보기 — 판다스 첫걸음
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    지저분한 데이터 깔끔하게 — 데이터 정제 실습
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    여기까지 정리 — 나만의 데이터셋 만들기 프로젝트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 3 - [2권] Part 3. 데이터에서 의미를 발견하다
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 3 - [2권] Part 3. 데이터에서 의미를 발견하다
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    숫자가 들려주는 이야기 — 기초 통계량 이해하기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    처음 만나는 오렌지3 — 코딩 없이 데이터 분석하기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    관계를 찾아라 — 상관관계와 패턴 탐색
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    데이터를 나누어 보기 — 그룹별 분석의 힘
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    여기까지 정리 — 데이터 탐정 보고서 작성하기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 4 - [2권] Part 4. 데이터를 그림으로, 세상에 전하다
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 4 - [2권] Part 4. 데이터를 그림으로, 세상에 전하다
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    왜 그래프가 필요한가 — 시각화의 힘
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter17/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    오렌지3로 그래프 만들기 — 클릭 몇 번의 마법
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter18/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    파이썬으로 그래프 그리기 — matplotlib 첫걸음
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter19/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    데이터로 이야기하기 — 스토리텔링과 인사이트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter20/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    최종 프로젝트 — 나의 데이터 이야기 완성하기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter21/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    다음 단계로 나아가기 — 데이터과학 그 이후
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 이 장의 학습 목표
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 미리 알아야 할 것
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💡 왜 이걸 배우나요?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 핵심 개념
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📚 핵심 개념">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-numerical-vs-categorical" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        개념 1: 수치형(Numerical) vs 범주형(Categorical) 데이터
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="개념 1: 수치형(Numerical) vs 범주형(Categorical) 데이터">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 비유로 시작해볼게요
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📖 정확한 정의
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔍 예시로 확인해보기
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-structured" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        개념 2: 정형(Structured) 데이터
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="개념 2: 정형(Structured) 데이터">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 비유로 이해하기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📖 정의와 특징
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔍 정형 데이터 실제 모습
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-unstructured" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        개념 3: 비정형(Unstructured) 데이터
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="개념 3: 비정형(Unstructured) 데이터">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 비유로 이해하기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📖 정의와 특징
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔍 비정형 데이터 실제 예시
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-semi-structured" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        개념 4: 반정형(Semi-structured) 데이터
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="개념 4: 반정형(Semi-structured) 데이터">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 비유로 이해하기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📖 정의와 특징
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔍 반정형 데이터 실제 예시
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔨 따라하기: 실제 데이터 분류해보기
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔨 따라하기: 실제 데이터 분류해보기">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: 준비물 확인하기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: 예시 데이터 읽어보기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: 각 열을 분류하기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: 전체 데이터 형태 판단하기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: 비정형 데이터와 비교하기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6: 실습 마무리
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚠️ 자주 하는 실수
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="⚠️ 자주 하는 실수">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        실수 1: "숫자 = 수치형" 이라고 생각하기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        실수 2: 비정형 데이터를 "쓸모없다"고 생각하기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        실수 3: 데이터 분류를 "절대적"이라고 생각하기
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📝 전체 코드 및 정리 표
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📝 전체 코드 및 정리 표">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        데이터 종류 비교표
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ 스스로 점검해 봐요
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 더 해보기
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 더 해보기">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        도전 과제 1: 당신의 학교 급식 데이터 직접 만들기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        도전 과제 2: 일상에서 찾기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        도전 과제 3: 다음 장을 위한 준비
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔗 다음 장으로
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📌 이 장의 핵심 정리
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📌 이 장의 핵심 정리">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ 꼭 기억할 4가지
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="chapter-04">Chapter 04. 데이터의 종류와 형태 이해하기<a class="headerlink" href="#chapter-04" title="Permanent link">&para;</a></h1>
+<h2 id="_1">🎯 이 장의 학습 목표<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 수치형 데이터와 범주형 데이터를 정확하게 구분할 수 있어요</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 정형·반정형·비정형 데이터의 특징을 각각 설명할 수 있어요</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 주어진 데이터셋에서 각 열(변수)의 데이터 유형을 분류할 수 있어요</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 실제 데이터를 보고 어떤 데이터 종류인지 판단할 수 있어요</li>
+</ul>
+<p><strong>예상 학습 시간</strong>: 약 2시간</p>
+<h2 id="_2">📚 미리 알아야 할 것<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>이전 장에서는 <strong>데이터가 무엇인지</strong>, 그리고 <strong>데이터 리터러시의 중요성</strong>을 배웠어요. 이번 장에서는 그런 데이터들이 어떤 <strong>종류</strong>인지, 어떤 <strong>형태</strong>를 가지고 있는지 알아보겠습니다. 혼자 읽어도 충분히 이해할 수 있도록 차근차근 설명해 드릴게요!</p>
+<hr />
+<h2 id="_3">💡 왜 이걸 배우나요?<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>외국어 공부를 시작할 때, 먼저 <strong>명사, 동사, 형용사</strong> 같은 기본 문법을 배우지 않나요? 같은 이유로 데이터 분석을 시작하기 전에 <strong>데이터의 종류</strong>를 아는 것이 매우 중요합니다.</p>
+<p>데이터의 종류를 모르면:
+- 📊 어떤 분석 방법을 써야 하는지 몰라요
+- 🤔 그래프를 어떻게 그려야 할지 헷갈려요
+- ❌ 잘못된 결론을 내릴 수 있어요</p>
+<p><strong>데이터 종류를 알면</strong>:
+- ✅ 올바른 분석 방법을 선택할 수 있어요
+- ✅ 적절한 시각화를 만들 수 있어요
+- ✅ 신뢰할 수 있는 결론에 도달할 수 있어요</p>
+<p>지금부터 함께 배워보겠습니다!</p>
+<hr />
+<h2 id="_4">📚 핵심 개념<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="1-numerical-vs-categorical">개념 1: 수치형(Numerical) vs 범주형(Categorical) 데이터<a class="headerlink" href="#1-numerical-vs-categorical" title="Permanent link">&para;</a></h3>
+<h4 id="_5">🎯 비유로 시작해볼게요<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
+<p>학교 급식 만족도 조사를 한다고 생각해봅시다.</p>
+<p><strong>"오늘 급식이 몇 점인가요?"</strong> → 1점, 2점, 3점... 이렇게 <strong>숫자로 답</strong>해요 (수치형)</p>
+<p><strong>"급식이 맛있었나요?"</strong> → "맛있어요", "보통이에요", "싫어요" 이렇게 <strong>카테고리로 답</strong>해요 (범주형)</p>
+<p>같은 주제인데 <strong>답변의 형태가 다르죠?</strong> 그게 바로 데이터 종류의 차이입니다!</p>
+<h4 id="_6">📖 정확한 정의<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
+<p><strong>수치형(Numerical) 데이터</strong>
+- <strong>정의</strong>: 숫자로 표현되며, 크기를 비교할 수 있는 데이터
+- <strong>특징</strong>: 더하기, 빼기, 평균 계산이 가능해요
+- <strong>예시</strong>: 키(cm), 점수(점), 나이(살), 판매액(원)</p>
+<p><strong>범주형(Categorical) 데이터</strong>
+- <strong>정의</strong>: 정해진 카테고리(선택지) 중에 하나를 선택하는 데이터
+- <strong>특징</strong>: 순서가 있을 수도, 없을 수도 있어요
+- <strong>예시</strong>: 성별(남/녀), 혈액형(A/B/O/AB), 만족도(상/중/하)</p>
+<h4 id="_7">🔍 예시로 확인해보기<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
+<p>급식 만족도 설문 데이터를 보세요:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>학생이름       급식점수    급식맛   식재료선호도
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>---------------------------------------------------------
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>김철수         4          맛있어요   싱거워요
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>이영희         5          맛있어요   자극적이어요
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>박민준         2          싫어요    싱거워요
+</span></code></pre></div>
+<ul>
+<li><strong>급식점수</strong>: 수치형 ✅ (4, 5, 2 → 숫자)</li>
+<li><strong>급식맛</strong>: 범주형 ✅ ("맛있어요", "싫어요" → 정해진 선택지)</li>
+<li><strong>식재료선호도</strong>: 범주형 ✅ (정해진 선택지 중 선택)</li>
+</ul>
+<blockquote>
+<p>💡 <strong>팁</strong>: "평균을 구할 수 있는가?"라고 자문해보세요! 
+- 급식점수 평균: 3.67점 ✅ (평균 구하기 가능)
+- 급식맛 평균: ? ❌ ("맛있어요"의 평균은 말이 안 되지?)</p>
+</blockquote>
+<hr />
+<h3 id="2-structured">개념 2: 정형(Structured) 데이터<a class="headerlink" href="#2-structured" title="Permanent link">&para;</a></h3>
+<h4 id="_8">🎯 비유로 이해하기<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
+<p>학교 성적표를 생각해보세요. 📋</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>이름 | 수학 | 영어 | 과학
+</span></code></pre></div>
+<p>각 항목이 정해진 위치에 정확히 들어가 있어요. 이렇게 <strong>깔끔하게 정렬된 형태</strong>가 정형 데이터입니다.</p>
+<h4 id="_9">📖 정의와 특징<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
+<p><strong>정형 데이터</strong>:
+- <strong>정의</strong>: 행(row)과 열(column)로 이루어진 표 형태의 데이터
+- <strong>특징</strong>: 
+  - 각 열의 이름(헤더)이 명확해요
+  - 데이터 타입이 정해져 있어요
+  - 분석하기 가장 쉬워요!
+- <strong>예시</strong>: Excel 스프레드시트, 데이터베이스 테이블, CSV 파일</p>
+<h4 id="_10">🔍 정형 데이터 실제 모습<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>고객ID    주문날짜      상품명      가격(원)
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>1001     2024-01-15    노트북      15000
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>1002     2024-01-16    펜         3000
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>1003     2024-01-17    지우개      2000
+</span></code></pre></div>
+<p><strong>정형의 장점</strong>: 
+- 컴퓨터가 이해하기 쉬워요 ✅
+- 빠르게 분석할 수 있어요 ✅
+- 데이터 위치를 명확하게 알 수 있어요 ✅</p>
+<hr />
+<h3 id="3-unstructured">개념 3: 비정형(Unstructured) 데이터<a class="headerlink" href="#3-unstructured" title="Permanent link">&para;</a></h3>
+<h4 id="_11">🎯 비유로 이해하기<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h4>
+<p>SNS에 올린 댓글을 생각해봅시다. 💬</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>&quot;오늘 영화 정말 재미있었어!!! 
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>친구들과 함께 봤는데 최고다!!&quot;
+</span></code></pre></div>
+<p>이건 표 형태가 아니에요. 글자가 자유롭게 흘러가죠? 이게 비정형 데이터입니다.</p>
+<h4 id="_12">📖 정의와 특징<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h4>
+<p><strong>비정형 데이터</strong>:
+- <strong>정의</strong>: 정해진 구조가 없는 자유로운 형태의 데이터
+- <strong>특징</strong>:
+  - 텍스트, 이미지, 동영상, 음성 등 다양한 형태
+  - 사람이 읽기는 쉽지만 컴퓨터가 분석하기는 어려워요
+  - 더 정교한 분석 기술(AI/머신러닝)이 필요해요
+- <strong>예시</strong>: 블로그 포스트, 유튜브 댓글, 사진, 녹음 파일</p>
+<h4 id="_13">🔍 비정형 데이터 실제 예시<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>텍스트</strong>: 영화 리뷰, 제품 후기, 뉴스 기사</li>
+<li><strong>이미지</strong>: 인스타그램 사진, X레이 영상, 위성사진</li>
+<li><strong>동영상</strong>: 유튜브 영상, 감시 카메라 영상</li>
+<li><strong>음성</strong>: 통화 녹음, 팟캐스트</li>
+</ul>
+<p><strong>비정형의 특징</strong>:
+- 인간다운 데이터 ✍️ (사람의 감정, 생각이 드러남)
+- 분석하기 어려움 🤔 (고급 기술 필요)
+- 엄청난 가치 💎 (사람의 진심이 담겨있음)</p>
+<hr />
+<h3 id="4-semi-structured">개념 4: 반정형(Semi-structured) 데이터<a class="headerlink" href="#4-semi-structured" title="Permanent link">&para;</a></h3>
+<h4 id="_14">🎯 비유로 이해하기<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h4>
+<p>SNS 프로필을 생각해봅시다. 👤</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>이름: 김철수
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>나이: 25세
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>거주지: 서울
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>자기소개: &quot;안녕하세요! 저는 영화를 사랑하는 
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>평범한 직장인입니다. 함께 영화 이야기 나눠요!&quot;
+</span></code></pre></div>
+<p><strong>일부는 정해진 형태</strong>(이름, 나이, 거주지)지만, <strong>일부는 자유로운 형태</strong>(자기소개)예요. 이게 반정형입니다!</p>
+<h4 id="_15">📖 정의와 특징<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h4>
+<p><strong>반정형 데이터</strong>:
+- <strong>정의</strong>: 정형과 비정형의 중간 형태로, 일부는 구조화되고 일부는 자유로운 데이터
+- <strong>특징</strong>:
+  - 메타데이터(데이터를 설명하는 데이터)가 있어요
+  - 구조가 있지만 완전히 규칙적이지는 않아요
+  - 정형과 비정형의 장점을 조금씩 가지고 있어요
+- <strong>예시</strong>: JSON 파일, XML 문서, 웹페이지 HTML, 이메일</p>
+<h4 id="_16">🔍 반정형 데이터 실제 예시<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h4>
+<p><strong>JSON 형식 (가장 흔한 반정형)</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>{
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>  &quot;고객명&quot;: &quot;김철수&quot;,
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>  &quot;나이&quot;: 28,
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>  &quot;이메일&quot;: &quot;kim@example.com&quot;,
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>  &quot;리뷰&quot;: &quot;상품이 정말 좋아요! 배송도 빨랐어요.&quot;
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>}
+</span></code></pre></div></p>
+<p>구조가 있으면서도(고객명, 나이, 이메일), 자유로운 부분도 있어요(리뷰).</p>
+<hr />
+<h2 id="_17">🔨 따라하기: 실제 데이터 분류해보기<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h2>
+<h3 id="step-1">Step 1: 준비물 확인하기<a class="headerlink" href="#step-1" title="Permanent link">&para;</a></h3>
+<p>이번 실습에서는 <strong>누구나 가지고 있는 도구</strong>만 사용해요:
+- 📝 종이와 펜 (또는 메모장)
+- 👀 집중력</p>
+<p>코드나 복잡한 프로그램은 필요 없어요!</p>
+<h3 id="step-2">Step 2: 예시 데이터 읽어보기<a class="headerlink" href="#step-2" title="Permanent link">&para;</a></h3>
+<p>아래는 <strong>실제 병원 진료 데이터</strong>의 일부입니다. 천천히 읽어보세요.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>환자ID    나이    성별    진료과목    증상설명                    진료점수
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>P001     34     여     피부과     &quot;얼굴에 여드름이 많아요&quot;      5
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>P002     67     남     내과      &quot;기침이 일주일째 계속&quot;        3
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>P003     28     여     치과      &quot;앞니가 빠졌어요&quot;            2
+</span></code></pre></div>
+<h3 id="step-3">Step 3: 각 열을 분류하기<a class="headerlink" href="#step-3" title="Permanent link">&para;</a></h3>
+<p><strong>환자ID</strong>: 숫자지만 평균을 구하지 않아요 → <strong>범주형</strong> ✅</p>
+<p><strong>나이</strong>: 34, 67, 28 → 평균을 구할 수 있어요 → <strong>수치형</strong> ✅</p>
+<p><strong>성별</strong>: "남", "여" → 정해진 선택지 → <strong>범주형</strong> ✅</p>
+<p><strong>진료과목</strong>: "피부과", "내과", "치과" → 정해진 선택지 → <strong>범주형</strong> ✅</p>
+<p><strong>증상설명</strong>: 자유로운 문장 → <strong>비정형 데이터의 일부</strong> ✅</p>
+<p><strong>진료점수</strong>: 5, 3, 2 → 평균을 구할 수 있어요 → <strong>수치형</strong> ✅</p>
+<blockquote>
+<p>✅ <strong>체크포인트</strong>: 여기까지 이해가 되셨나요? 각 열을 보고 "이건 뭔가?"라고 자문하는 습관이 생겼다면 성공입니다!</p>
+</blockquote>
+<h3 id="step-4">Step 4: 전체 데이터 형태 판단하기<a class="headerlink" href="#step-4" title="Permanent link">&para;</a></h3>
+<p>위 병원 진료 데이터는?
+- ✅ 행과 열로 이루어져 있고
+- ✅ 각 열의 이름이 명확하고
+- ✅ 규칙적인 구조를 가지고 있으므로</p>
+<p>→ <strong>정형 데이터</strong> 입니다! 📊</p>
+<h3 id="step-5">Step 5: 비정형 데이터와 비교하기<a class="headerlink" href="#step-5" title="Permanent link">&para;</a></h3>
+<p>만약 같은 정보를 이렇게 표현했다면:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>&quot;34살 여성 환자가 피부과에 방문했어요. 
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>&#39;얼굴에 여드름이 많아서 고민이에요. 
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>뾰족한 게 나는데 아프기도 하고 화장하기도 힘들어요.&#39;
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>라고 했어요. 진료 만족도는 5점입니다.&quot;
+</span></code></pre></div>
+<p>이건 → <strong>비정형 데이터</strong> (자유로운 문장 형태)</p>
+<h3 id="step-6">Step 6: 실습 마무리<a class="headerlink" href="#step-6" title="Permanent link">&para;</a></h3>
+<p><strong>당신이 수집할 데이터들을 먼저 분류해보세요:</strong></p>
+<ul>
+<li>📱 SNS 팔로워 수 → ? (수치형)</li>
+<li>👍 좋아요/싫어요 → ? (범주형)</li>
+<li>🎬 영화 리뷰 글 → ? (비정형)</li>
+<li>📧 이메일의 제목 + 본문 → ? (반정형)</li>
+</ul>
+<p>천천히 생각해보세요. 정답은 괄호 안에 있어요!</p>
+<hr />
+<h2 id="_18">⚠️ 자주 하는 실수<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h2>
+<h3 id="1">실수 1: "숫자 = 수치형" 이라고 생각하기<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<p><strong>❌ 틀린 예시</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>전화번호: 01012345678
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>학번: 2024001
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>우편번호: 06234
+</span></code></pre></div></p>
+<p>이건 모두 숫자지만, <strong>평균을 구할 수 있나요?</strong> </p>
+<p>"전화번호의 평균 = 01012345678이 말이 되나요?" → 아니에요!</p>
+<p><strong>✅ 올바른 이해</strong>:
+- 전화번호, 학번, 우편번호는 <strong>범주형 데이터</strong>입니다.
+- 왜냐하면 <strong>크기를 비교하거나 계산할 의미가 없거든요.</strong></p>
+<p><strong>핵심</strong>: "평균, 합계를 구할 수 있는가?"로 판단하세요!</p>
+<hr />
+<h3 id="2">실수 2: 비정형 데이터를 "쓸모없다"고 생각하기<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<p><strong>❌ 틀린 생각</strong>:
+"비정형 데이터는 분석하기 어려우니까 필요 없어!"</p>
+<p><strong>✅ 올바른 이해</strong>:
+비정형 데이터는 <strong>엄청난 가치</strong>가 있어요!
+- 고객 만족도를 정확하게 알 수 있어요
+- 제품 개선 아이디어를 찾을 수 있어요
+- 경쟁사보다 먼저 시장 변화를 감지할 수 있어요</p>
+<p><strong>핵심</strong>: 분석 방법만 다를 뿐, 가치는 더 클 수도 있어요!</p>
+<hr />
+<h3 id="3">실수 3: 데이터 분류를 "절대적"이라고 생각하기<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<p><strong>❌ 틀린 생각</strong>:
+"점수는 항상 수치형이고, 이름은 항상 범주형이야!"</p>
+<p><strong>✅ 올바른 이해</strong>:
+상황에 따라 달라질 수 있어요!</p>
+<p>예를 들어:
+- <strong>온라인 게임 랭킹 점수</strong> → 10000점, 9500점 → <strong>수치형</strong> (순위 비교)
+- <strong>만족도 점수</strong> → 1점, 2점, 3점 → 보통 <strong>범주형</strong> (만족도 카테고리)</p>
+<p><strong>핵심</strong>: "어떤 목적으로 이 데이터를 사용할 건가?"를 먼저 생각하세요!</p>
+<hr />
+<h2 id="_19">📝 전체 코드 및 정리 표<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h2>
+<p>이번 장은 <strong>개념 이해에 중점</strong>을 두었기에 코드는 없어요. 대신 정리해드릴게요!</p>
+<h3 id="_20">데이터 종류 비교표<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
+<p><strong>수치형 vs 범주형:</strong></p>
+<p>📊 수치형 데이터
+- 숫자로 표현됨 (5, 3.5, -10)
+- 평균, 합계, 최댓값 계산 가능
+- 예: 나이, 키, 판매액, 온도</p>
+<p>📁 범주형 데이터
+- 정해진 선택지 중 선택 ("남", "여", "상")
+- 평균/합계 계산 불가능
+- 예: 성별, 혈액형, 만족도 등급</p>
+<hr />
+<p><strong>정형 vs 비정형:</strong></p>
+<p>🗂️ 정형 데이터
+- 행과 열의 표 형태
+- 구조가 명확함 (Excel, 데이터베이스)
+- 분석 가장 쉬움</p>
+<p>📝 비정형 데이터
+- 자유로운 형태 (텍스트, 이미지, 영상)
+- 구조가 불명확함
+- 분석하려면 고급 기술 필요</p>
+<hr />
+<p><strong>반정형 데이터:</strong></p>
+<p>🔀 반정형 데이터
+- 정형과 비정형의 중간
+- 일부는 구조화, 일부는 자유로움
+- 예: JSON, XML, HTML</p>
+<hr />
+<h2 id="_21">✅ 스스로 점검해 봐요<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h2>
+<p>다음 질문에 "네"라고 답할 수 있으면 이 장을 완벽하게 이해한 거예요! 🎉</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>"키(cm)와 성별(남/녀)의 차이를 설명할 수 있나요?"</strong></li>
+<li>키: 수치형 (평균을 구할 수 있음)</li>
+<li>
+<p>성별: 범주형 (정해진 선택지)</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>"정형 데이터가 왜 분석하기 쉬운지 설명할 수 있나요?"</strong></p>
+</li>
+<li>
+<p>구조가 명확하고, 규칙이 있어서 컴퓨터가 이해하기 쉬워요</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>"SNS 댓글을 어떤 종류의 데이터로 분류하나요?"</strong></p>
+</li>
+<li>
+<p>비정형 데이터 (자유로운 문장)</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>"고객ID(001, 002, 003)는 수치형인가요?"</strong></p>
+</li>
+<li>
+<p>아니요, 범주형입니다 (평균을 구할 의미가 없으므로)</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>"JSON 파일은 무엇인가요?"</strong></p>
+</li>
+<li>반정형 데이터 (일부 구조화, 일부 자유로움)</li>
+</ul>
+<blockquote>
+<p>💡 <strong>팁</strong>: 모든 질문에 답했다면 정말 잘하셨어요! 
+혹시 어려웠던 부분이 있다면 해당 개념 섹션을 다시 한 번 읽어보세요.</p>
+</blockquote>
+<hr />
+<h2 id="_22">🚀 더 해보기<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h2>
+<h3 id="1_1">도전 과제 1: 당신의 학교 급식 데이터 직접 만들기<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h3>
+<p>지금까지 배운 내용을 <strong>직접 적용</strong>해봐요!</p>
+<p>아래처럼 당신의 학교 급식 만족도 조사를 설계해보세요:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>데이터셋 이름: &quot;우리 학교 급식 만족도 조사&quot;
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>수집할 데이터:
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>1. 학년 - ? (범주형)
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>2. 급식점수 - ? (수치형)
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>3. 가장 맛있던 음식 - ? (범주형 또는 비정형)
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>4. 개선되면 좋을 점 - ? (비정형)
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>전체 형태: ? (정형 데이터)
+</span></code></pre></div>
+<p>괄호에 답을 써보세요!</p>
+<h3 id="2_1">도전 과제 2: 일상에서 찾기<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h3>
+<p><strong>이번 한 주 동안</strong> 당신이 마주치는 데이터들을 3개 이상 찾아 분류해봐요:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>예시) 
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>- 카카오톡 채팅 → 비정형 데이터
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>- 인스타그램 좋아요 수 → 수치형 데이터
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>- SNS 팔로우/언팔로우 → 범주형 데이터
+</span></code></pre></div>
+<blockquote>
+<p>💡 <strong>팁</strong>: 스마트폰, 교실, 도서관... 어디서나 데이터를 찾을 수 있어요!</p>
+</blockquote>
+<h3 id="3_1">도전 과제 3: 다음 장을 위한 준비<a class="headerlink" href="#3_1" title="Permanent link">&para;</a></h3>
+<p>이 장을 끝낸 후 <strong>한 가지만</strong> 기억해주세요:</p>
+<p><strong>"데이터의 종류를 알면, 어떻게 분석해야 할지 알 수 있다!"</strong></p>
+<p>다음 장에서는 <strong>실제로 데이터를 가져와서 정리하는 방법</strong>을 배워요. 이번 장의 개념들이 그때 정말 유용해질 거예요! </p>
+<hr />
+<h2 id="_23">🔗 다음 장으로<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h2>
+<p><strong>다음 Chapter: 5장. "데이터 수집과 정리의 기초"</strong></p>
+<p>이 장에서 배운 <strong>데이터 종류</strong>를 이용해서, 실제로 <strong>엑셀이나 프로그래밍으로 데이터를 정리</strong>하는 방법을 배워요. 더 이상 이론만이 아니라 <strong>손으로 직접 만져보는</strong> 데이터 분석이 시작됩니다! 🎊</p>
+<p><strong>이번 장의 핵심을 한 문장으로:</strong></p>
+<blockquote>
+<p>"데이터는 수치형/범주형으로 나뉘고, 정형/반정형/비정형의 형태를 가진다. 종류를 알면 분석 방법이 보인다!" ✨</p>
+</blockquote>
+<hr />
+<h2 id="_24">📌 이 장의 핵심 정리<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h2>
+<h3 id="4">✅ 꼭 기억할 4가지<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>수치형 데이터</strong> = 평균, 합계를 구할 수 있는 숫자 데이터 (나이, 점수)</p>
+</li>
+<li>
+<p><strong>범주형 데이터</strong> = 정해진 선택지 중 고르는 데이터 (성별, 혈액형)</p>
+</li>
+<li>
+<p><strong>정형 데이터</strong> = 깔끔한 표 형태 (Excel, 데이터베이스) ✨ 분석하기 가장 쉬움</p>
+</li>
+<li>
+<p><strong>비정형 데이터</strong> = 자유로운 형태 (글, 사진, 영상) ✨ 가치는 크지만 분석 어려움</p>
+</li>
+</ol>
+<hr />
+<p><strong>축하합니다!</strong> 🎉 </p>
+<p>이제 당신은 데이터의 <strong>"종류와 형태"</strong>를 이해했어요. 이것은 데이터 분석의 첫 번째 중요한 기초를 다지신 거예요! 천천히 진행해도 괜찮아요. 혼자서도 충분히 할 수 있거든요! </p>
+<p>다음 장에서 만나요! 👋</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  맨위로
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
+      
+        <script src="../javascripts/title-link.js"></script>
+      
+    
+  </body>
+</html>
